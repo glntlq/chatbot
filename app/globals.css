@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary-gradient: linear-gradient(135deg, #000000 0%, #333333 100%);
+    --glass-background: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.5);
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    @apply shadow-lg;
+  }
+
+  .chat-bubble {
+    @apply p-4 rounded-2xl max-w-[80%] shadow-sm;
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .chat-bubble-user {
+    @apply bg-black text-white;
+  }
+
+  .chat-bubble-ai {
+    @apply bg-white border border-gray-200;
+  }
+
+  .primary-button {
+    @apply px-8 py-4 bg-black text-white rounded-full font-medium 
+           transition-all duration-300 hover:scale-105 hover:shadow-lg
+           active:scale-95;
+  }
+
+  .feature-icon {
+    @apply w-12 h-12 rounded-2xl flex items-center justify-center
+           bg-gradient-to-br from-gray-50 to-gray-100
+           shadow-inner;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Markdown 样式优化 */
+.prose {
+  @apply text-gray-700;
+}
+
+.prose h1, .prose h2, .prose h3 {
+  @apply text-gray-800 font-bold mb-4;
+}
+
+.prose p {
+  @apply mb-4 leading-relaxed;
+}
+
+.prose ul, .prose ol {
+  @apply my-4 space-y-2;
+}
+
+.prose li {
+  @apply leading-relaxed;
+}
+
+.prose code {
+  @apply px-2 py-1 rounded-md bg-gray-100 text-gray-800 text-sm font-mono;
+}
+
+.prose pre {
+  @apply p-4 rounded-lg bg-gray-900 overflow-x-auto my-4;
+}
+
+.prose pre code {
+  @apply bg-transparent text-gray-100 p-0;
+}
+
+.prose blockquote {
+  @apply pl-4 border-l-4 border-gray-200 italic text-gray-600 my-4;
+}
+
+.prose img {
+  @apply rounded-lg shadow-md my-4;
+}
+
+.prose a {
+  @apply text-blue-600 hover:text-blue-800 underline;
+} 
